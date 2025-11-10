@@ -8,6 +8,7 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @State var alertIsVisible = false
     @State private var numAleatorio = Int.random(in: 1...100)
 
     
@@ -29,12 +30,20 @@ struct ContentView: View {
             }
                 .padding()  
             Button("TRY") {
+                alertIsVisible = true
             }
                 .padding()
                 .font(.title3)
                 .foregroundColor(.white)
-                .background(Color.blue)
+                .background(Color.accentColor)
+                //.background(Color.blue)
                 .cornerRadius(21)
+                .alert(isPresented: $alertIsVisible){
+                Alert(title: Text("Hello"),
+                      message: Text("This is my first alert"),
+                      dismissButton: .default(Text("Got it")))
+                
+            }
         }
         .padding()
         
@@ -47,3 +56,5 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+
