@@ -11,6 +11,7 @@
 		EFD4C4B72EAFD19400BDD0D9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD4C4B62EAFD19400BDD0D9 /* ContentView.swift */; };
 		EFD4C4B92EAFD19B00BDD0D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFD4C4B82EAFD19B00BDD0D9 /* Assets.xcassets */; };
 		EFD4C4BC2EAFD19B00BDD0D9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFD4C4BB2EAFD19B00BDD0D9 /* Preview Assets.xcassets */; };
+		EFD5C0442EC2420F00FDDE0C /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD5C0432EC2420F00FDDE0C /* Game.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		EFD4C4B82EAFD19B00BDD0D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EFD4C4BB2EAFD19B00BDD0D9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EFD4C4BD2EAFD19B00BDD0D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EFD5C0432EC2420F00FDDE0C /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 			children = (
 				EFD4C4B42EAFD19400BDD0D9 /* GameApp.swift */,
 				EFD4C4B62EAFD19400BDD0D9 /* ContentView.swift */,
+				EFD5C0432EC2420F00FDDE0C /* Game.swift */,
 				EFD4C4B82EAFD19B00BDD0D9 /* Assets.xcassets */,
 				EFD4C4BD2EAFD19B00BDD0D9 /* Info.plist */,
 				EFD4C4BA2EAFD19B00BDD0D9 /* Preview Content */,
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFD4C4B72EAFD19400BDD0D9 /* ContentView.swift in Sources */,
+				EFD5C0442EC2420F00FDDE0C /* Game.swift in Sources */,
 				EFD4C4B52EAFD19400BDD0D9 /* GameApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -276,6 +280,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = lasalle.Game;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -297,6 +302,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = lasalle.Game;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

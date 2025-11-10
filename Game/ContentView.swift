@@ -8,10 +8,11 @@ import SwiftUI
 
 struct ContentView: View {
     
-    
-    @State private var numAleatorio = Int.random(in: 1...100)
+    @State var game = Game()
+  
     @State var alertIsVisible = false
-    @State var sliderValue:Double = 50.0
+    @State var sliderValue:Double = (Game.highNumber-Game.lowNumber)/2
+    
     
     var body: some View {
         ZStack{
@@ -19,16 +20,17 @@ struct ContentView: View {
             //Color.gray.ignoresSafeArea()
             VStack(spacing: 30) {
             Text("🎯🎯🎯").font(.largeTitle)
-            Text("\(numAleatorio)")
+                Text("\(game.guessNumber)")
                 .font(.largeTitle)
                 .fontWeight(.bold)
                 .kerning(-1)
             
-                SliderView(value: $sliderValue, lowValue: 1, highValue: 100)
+                SliderView(value: $sliderValue, lowValue: Game.lowNumber, highValue: Game.highNumber)
                 
                 Text("Slider value tracking \(sliderValue)")
             Button("TRY") {
                 alertIsVisible = true
+                self.game.calculatePoints(sliderValue: sliderValue)
             }
                 .padding()
                 .font(.title3)
@@ -36,10 +38,18 @@ struct ContentView: View {
                 .background(Color.accentColor)
                 //.background(Color.blue)
                 .cornerRadius(21)
+            
+            
+            
+            
                 .alert(isPresented: $alertIsVisible){
-                Alert(title: Text("Hello"),
-                      message: Text("This is my first alert"),
-                      dismissButton: .default(Text("Got it")))
+                Alert(title: Text("Congratulations"),
+                      message: Text("You got \(game.points) points"),
+                      dismissButton: .default(Text("Ok")){
+                        game.restart()
+                        sliderValue = (Game.highNumber-Game.lowNumber)/2
+                      }
+                )
                 
             }
         }
