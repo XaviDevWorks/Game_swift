@@ -8,9 +8,10 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State var alertIsVisible = false
+    
     @State private var numAleatorio = Int.random(in: 1...100)
-
+    @State var alertIsVisible = false
+    @State var sliderValue:Double = 50.0
     
     var body: some View {
         ZStack{
@@ -23,12 +24,9 @@ struct ContentView: View {
                 .fontWeight(.bold)
                 .kerning(-1)
             
-            HStack {
-                Text("1").fontWeight(.bold)
-                Slider(value: .constant(50), in: 1...100)
-                Text("100").fontWeight(.bold)
-            }
-                .padding()  
+                SliderView(value: $sliderValue, lowValue: 1, highValue: 100)
+                
+                Text("Slider value tracking \(sliderValue)")
             Button("TRY") {
                 alertIsVisible = true
             }
@@ -58,3 +56,16 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 
+
+struct SliderView: View {
+    @Binding var value:Double // usamos binding para comunicar la subview a a superview
+    let lowValue:Double
+    let highValue:Double
+    var body: some View {
+        HStack {
+            Text("\(Int(lowValue))").fontWeight(.bold)
+            Slider(value: $value, in: lowValue...highValue)
+            Text("\(Int(highValue))").fontWeight(.bold)
+        }.padding(.horizontal)
+    }
+}
