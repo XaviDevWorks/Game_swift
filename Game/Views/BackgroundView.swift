@@ -8,19 +8,24 @@
 import SwiftUI
 
 struct BackgroundView: View {
+    @EnviromentObject var gameStore:GameStore
+
+    var game:Game
     var body: some View {
-        ZStack{
-            Color("BackgroundColor")
-        
-        VStack{
+        //ZStack {
+        // Color("BackgroundColor")
+            VStack{
             HStack{
-                RoundedImageView(imageName: "arrow.clockwise")
+                Button(action:{gameStore.restartGame()}){
+                    RoundedImageView(imageName: "arrow.clockwise")
+                }
+                
                 Spacer()
                 RoundedImageView(imageName: "list.dash")
                 }
             Spacer()
             HStack{
-                RoundedTextView(text: "SCORE", value:100)
+                RoundedTextView(text: "SCORE", value:gameStore.game.score)
                 Spacer()
                 RoundedTextView(text: "ROUND", value:4)
                 }
@@ -29,7 +34,7 @@ struct BackgroundView: View {
         }.padding()
     }
 }
-}
+
 
     
 struct RoundedTextView: View{
@@ -55,6 +60,7 @@ struct RoundedImageView: View{
             .font(.title)
             .frame(width:56,height: 56)
             .overlay(Circle().stroke())
+            .foregroundColor(.primary)
     }
     
 }
@@ -62,6 +68,6 @@ struct RoundedImageView: View{
 
 struct BackgroundView_Previews: PreviewProvider {
     static var previews: some View {
-        BackgroundView()
+        BackgroundView().enviromentObject(GameStore())
     }
 }

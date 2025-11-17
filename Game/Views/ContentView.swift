@@ -8,7 +8,8 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State var game = Game()
+    //@State var game = Game()
+    @EnviromentObject var gameStore:GameStore
   
     @State var alertIsVisible = false
     @State var sliderValue:Double = (Game.highNumber-Game.lowNumber)/2
@@ -16,12 +17,10 @@ struct ContentView: View {
     
     var body: some View {
         ZStack{
-            //Color("BackgroundColor") falta crear el constructor de color para que haya uno predeterminado
-            //Color.gray.ignoresSafeArea()
             BackgroundView().ignoresSafeArea()
             VStack{
             Text("🎯🎯🎯").font(.largeTitle)
-                Text("\(game.guessNumber)")
+                Text("\(gameStore.game.guessNumber)")
                 .font(.largeTitle)
                 .fontWeight(.bold)
                 .kerning(-1)
@@ -31,7 +30,8 @@ struct ContentView: View {
                 Text("Slider value tracking \(sliderValue)")
             Button("TRY") {
                 alertIsVisible = true
-                self.game.calculatePoints(sliderValue: sliderValue)
+                gameStore.calculatePoints(value: sliderValue)
+                //self.game.calculatePoints(sliderValue: sliderValue)
             }
                 .padding()
                 .font(.title3)
@@ -45,9 +45,9 @@ struct ContentView: View {
             
                 .alert(isPresented: $alertIsVisible){
                 Alert(title: Text("Congratulations"),
-                      message: Text("You got \(game.points) points"),
+                      message: Text("You got \(gameStore.game.points) points"),
                       dismissButton: .default(Text("Ok")){
-                        game.restart()
+                        gameStore.restart()
                         sliderValue = (Game.highNumber-Game.lowNumber)/2
                       }
                 )
@@ -62,7 +62,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView().EnviromentObject.gameStore
     }
 }
 
