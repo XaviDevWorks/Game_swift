@@ -6,7 +6,7 @@ import Foundation
 class GameStore: ObservableObject{
     @Published private(set) var game = Game()
     
-    func caculatePoints(value: Double){
+    func calculatePoints(value: Double){
         game.calculatePoints(sliderValue:value)
     }
     
