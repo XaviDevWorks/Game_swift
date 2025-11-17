@@ -9,7 +9,7 @@ import SwiftUI
 struct ContentView: View {
     
     //@State var game = Game()
-    @EnviromentObject var gameStore:GameStore
+    @EnvironmentObject var gameStore:GameStore
   
     @State var alertIsVisible = false
     @State var sliderValue:Double = (Game.highNumber-Game.lowNumber)/2
@@ -62,7 +62,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().EnviromentObject.gameStore
+        ContentView().environmentObject(GameStore())
     }
 }
 

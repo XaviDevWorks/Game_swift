@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct BackgroundView: View {
-    @EnviromentObject var gameStore:GameStore
-
-    var game:Game
+    @EnvironmentObject var gameStore:GameStore
     var body: some View {
         //ZStack {
         // Color("BackgroundColor")
@@ -68,6 +66,6 @@ struct RoundedImageView: View{
 
 struct BackgroundView_Previews: PreviewProvider {
     static var previews: some View {
-        BackgroundView().enviromentObject(GameStore())
+        BackgroundView().environmentObject(GameStore())
     }
 }

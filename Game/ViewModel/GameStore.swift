@@ -18,4 +18,10 @@ class GameStore: ObservableObject{
         game.restart()
     }
     
+    func highScores(value: Int){
+        var highScores: Array = [0, 0, 0, 0, 0]
+        var dateTimes: Array<Date> = [Date.init(), Date.init(), Date.init(), Date.init(), Date.init()]
+        
+    }
+    
 }
