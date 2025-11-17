@@ -18,7 +18,8 @@ struct ContentView: View {
         ZStack{
             //Color("BackgroundColor") falta crear el constructor de color para que haya uno predeterminado
             //Color.gray.ignoresSafeArea()
-            VStack(spacing: 30) {
+            BackgroundView().ignoresSafeArea()
+            VStack{
             Text("🎯🎯🎯").font(.largeTitle)
                 Text("\(game.guessNumber)")
                 .font(.largeTitle)
