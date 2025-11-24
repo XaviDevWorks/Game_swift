@@ -19,6 +19,7 @@ struct BackgroundView: View {
                 }
                 
                 Spacer()
+                // Button(action:{newPage()}){
                 RoundedImageView(imageName: "list.dash")
                 }
             Spacer()

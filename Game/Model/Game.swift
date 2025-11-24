@@ -35,5 +35,9 @@ struct Game {
         self.ronda = 0
         
     }
+    
+    mutating func posiciones(){
+        
+    }
 }
 
