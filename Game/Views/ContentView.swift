@@ -15,6 +15,7 @@ struct ContentView: View {
     @State var sliderValue:Double = (Game.highNumber-Game.lowNumber)/2
     
     
+    
     var body: some View {
         ZStack{
             BackgroundView().ignoresSafeArea()
@@ -31,6 +32,7 @@ struct ContentView: View {
             Button("TRY") {
                 alertIsVisible = true
                 gameStore.calculatePoints(value: sliderValue)
+                
                 //self.game.calculatePoints(sliderValue: sliderValue)
             }
                 .padding()

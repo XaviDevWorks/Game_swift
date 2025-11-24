@@ -25,7 +25,7 @@ struct BackgroundView: View {
             HStack{
                 RoundedTextView(text: "SCORE", value:gameStore.game.score)
                 Spacer()
-                RoundedTextView(text: "ROUND", value:4)
+                RoundedTextView(text: "ROUND", value:gameStore.game.ronda)
                 }
             
             
