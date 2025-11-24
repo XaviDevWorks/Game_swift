@@ -1,1 +1,1 @@
-#Xavier Farrús i Erik Muñoz
+Xavier Farrús i Erik Muñoz
